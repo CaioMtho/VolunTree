@@ -16,7 +16,7 @@ namespace VolunTree_API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Ongs>>> GetOngs()
+        public async Task<ActionResult<IEnumerable<Ong>>> GetOngs()
         {
             var ongs = await _dataService.GetOngsAsync();
             return Ok(ongs);
