@@ -1,6 +1,6 @@
 ﻿namespace VolunTree_API.Models
 {
-    public class Sugestoes
+    public class Sugestao
     {
 		public int IdSuges { get; set; }
 		public string Cpf { get; set; }

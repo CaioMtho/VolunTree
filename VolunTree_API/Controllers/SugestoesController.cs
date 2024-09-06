@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using VolunTree_API.Models;
 using VolunTree_API.Services;
-
+using VolunTree_API.Models;
 namespace VolunTree_API.Controllers
 {
     [ApiController]

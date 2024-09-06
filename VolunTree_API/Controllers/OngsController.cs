@@ -23,7 +23,7 @@ namespace VolunTree_API.Controllers
         }
 
         [HttpGet("{cnpj}")]
-        public async Task<ActionResult<Ong>> GetOngs(string cnpj)
+        public async Task<ActionResult<Ong>> GetOng(string cnpj)
         {
             var ong = await _dataService.GetOngByIdAsync(cnpj);
 

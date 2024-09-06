@@ -1,6 +1,6 @@
 ﻿namespace VolunTree_API.Models
 {
-    public class Voluntario_ongs
+    public class VoluntarioOng
     {
 		public int IdLigacao { get; set; }
 		public string Cpf { get; set; }
