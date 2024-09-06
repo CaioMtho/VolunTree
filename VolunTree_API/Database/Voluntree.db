@@ -1,0 +1,10 @@
+--
+-- Arquivo gerado com SQLiteStudio v3.4.4 em qui set 5 19:30:42 2024
+--
+-- Codificação de texto usada: System
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;
