@@ -6,6 +6,11 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet">
+    <style>
+      h2, h3{
+        font-family: montserrat;
+      }
+    </style>
     <script>
       //https://getbootstrap.com/docs/5.3/components/modal/
       //https://getbootstrap.com/docs/5.3/utilities/position/#center-elements
@@ -40,8 +45,6 @@
         <input class="form-control me-2" style="height:70%; width:auto;" type="search" placeholder="Pesquisar ONGs" aria-label="Search">
 
       </form>
-      <!--<button class="btn btn-light m-2" onclick="btnLogin()">Entrar</button>-->
-      
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-light m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Entrar</button>
     </div>
@@ -52,8 +55,8 @@
 
 
   <!--============INICIO DO <MAIN>============-->
-  <h1> Frase genérica...</h1>
-  <h2>Frase genérica</h2>
+  <h2>Unidos para uma evolução maior</h2>
+  <h3>Juntos seremos imbativeis</h3>
   <picture class="d-flex"><!-- Colocar a imagem atrás do texto...-->
     <source srcset="" type="image/avif">
     <img class="img-fluid" src="ongs.avif"/>
@@ -64,7 +67,7 @@
   
   
 
-  <!-- Inicio MODAL -->
+  <!-- Inicio MODAL Autentificação-->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered"><!--Centro-->
       <div class="modal-content">
@@ -78,24 +81,24 @@
           <!--Mudar card com react -- QG02 -->
           <div class="btn-group mx-auto " style="width:100%" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-            <label class="btn btn-outline-primary" for="btnradio1">Entrar</label>
+            <label class="btn btn-outline-success" for="btnradio1">Entrar</label>
           
             <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btnradio2">Cadastrar</label>
+            <label class="btn btn-outline-success" for="btnradio2">Cadastrar</label>
           </div>
           ...
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Authenticate</button>
+          <button type="button" class="btn btn-success">Authenticate</button>
         </div>
       </div>
     </div>
   </div><!--Fim MODAL-->
 
 
-  <!--USAR NO Arquivo ONGS para mudar de página -->
-  <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <!--USAR no Arquivo ONGS para mudar de página TESTE:SEM O D-NONE -->
+  <div class="btn-toolbar d-none" role="toolbar" aria-label="Toolbar with button groups">
     <div class="btn-group me-2" role="group" aria-label="First group">
       <button type="button" class="btn btn-primary">1</button>
       <button type="button" class="btn btn-info">2</button>
@@ -114,16 +117,48 @@
   </div>
 
   <!--=============FIM DO <MAIN>=============-->
-
+    
+  <!--Parte que da página HTML Sobre.html-->  
+  <div class="row">
+    <div class="col-4">
+      <div class="list-group" id="list-tab" role="tablist">
+        <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Voluntario</a>
+        <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Doador</a>
+        <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">ONGs</a>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Faz parte da nossa solução, esse usuário é o principal meio de conectar as ONGs com serviços Voluntarios.</div>
+        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Doador contribui com medicamentos, roupas, etc... </div>
+        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">As ONGs são quem organiza a ação comunitária.</div>
+      </div>
+    </div>
+  </div><!--HTML sobreee-->
 
 
 
   <!--_____________INICIO DO <FOOTER>_____________-->
-  <footer class="container-fluid bg-body-tertiary fixed-bottom">
-      <div class="row justify-content-center my-4 text-secondary
-      text-center">
-          <div class="col col-3">cabeçalho</div>
+  <footer class="container-fluid bg-body-tertiary ">
+    <div class="row justify-content-center my-4 text-secondary text-center">
+      <h3>Equipe de Desenvolvimento</h3>
+      <div class="d-flex col col-3">
+        <p class="col-8">
+          Caio Pequeno    <br/>
+          Fabio Henrique  <br/>
+          Hudson Henrique <br/>
+          Kayky Alves     <br/>
+          Paulo Bispo     
+        </p>
+        <p class="col-4">
+          Back-End <br/>
+          Back-End <br/>
+          Back-End <br/>
+          Front-End<br/>
+          Front-End<hr/>
+        </p>
       </div>
+    </div>
   </footer>
   <!--_________________FIM DO <FOOTER>_________________-->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
