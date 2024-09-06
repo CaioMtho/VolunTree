@@ -10,6 +10,10 @@
       h2, h3{
         font-family: montserrat;
       }
+      #background-home{
+        background-image:url('ongs.avif');
+        height:1200px;
+      }#h2-cor{color:white;}#h3-cor{color:wheat;}#input-height{height: 70%;}
     </style>
     <script>
       //https://getbootstrap.com/docs/5.3/components/modal/
@@ -40,9 +44,9 @@
       </div>
       
     </div>
-    <div class="d-flex"><!--QG01_CSS­-->
-      <form class="d-flex" style="margin:auto;" role="search">
-        <input class="form-control me-2" style="height:70%; width:auto;" type="search" placeholder="Pesquisar ONGs" aria-label="Search">
+    <div class="d-flex">
+      <form class="d-flex m-auto" role="search"><!--QG01_CSS­-->
+        <input class="form-control me-2 w-auto" id="input-height" type="search" placeholder="Pesquisar ONGs" aria-label="Search">
 
       </form>
       <!-- Button trigger modal -->
@@ -53,16 +57,12 @@
 
 
 
-
   <!--============INICIO DO <MAIN>============-->
-  <h2>Unidos para uma evolução maior</h2>
-  <h3>Juntos seremos imbativeis</h3>
-  <picture class="d-flex"><!-- Colocar a imagem atrás do texto...-->
-    <source srcset="" type="image/avif">
-    <img class="img-fluid" src="ongs.avif"/>
-  </picture>
-  <br/>
-
+  <!--div BACKGROUD QG02-->
+  <div id="background-home">
+    <h2 id="h2-cor">Unidos para uma evolução maior</h2><!--QG03-->
+    <h3 id="h3-cor">Juntos seremos imbativeis</h3>
+  </div><!--background-->
 
   
   
@@ -78,7 +78,7 @@
         <div class="modal-body">
           
 
-          <!--Mudar card com react -- QG02 -->
+          <!--Mudar card com react -- QG04 -->
           <div class="btn-group mx-auto " style="width:100%" role="group" aria-label="Basic radio toggle button group">
             <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
             <label class="btn btn-outline-success" for="btnradio1">Entrar</label>
@@ -115,19 +115,19 @@
       <button type="button" class="btn btn-info">8</button>
     </div>
   </div>
-
+  
   <!--=============FIM DO <MAIN>=============-->
     
   <!--Parte que da página HTML Sobre.html-->  
-  <div class="row">
-    <div class="col-4">
+  <div class="d-flex"> <!--tirei o row-->
+    <div class="col-4 p-2">
       <div class="list-group" id="list-tab" role="tablist">
         <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="list-home">Voluntario</a>
         <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="list-profile">Doador</a>
         <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="list-messages">ONGs</a>
       </div>
     </div>
-    <div class="col-8">
+    <div class="col-8 p-2">
       <div class="tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">Faz parte da nossa solução, esse usuário é o principal meio de conectar as ONGs com serviços Voluntarios.</div>
         <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">Doador contribui com medicamentos, roupas, etc... </div>
@@ -139,18 +139,18 @@
 
 
   <!--_____________INICIO DO <FOOTER>_____________-->
-  <footer class="container-fluid bg-body-tertiary ">
+  <footer class="container-fluid  bg-body-tertiary ">
     <div class="row justify-content-center my-4 text-secondary text-center">
       <h3>Equipe de Desenvolvimento</h3>
-      <div class="d-flex col col-3">
-        <p class="col-8">
+      <div class="d-flex justify-content-center"><!--tirei o row-->
+        <p class="col-2">
           Caio Pequeno    <br/>
           Fabio Henrique  <br/>
           Hudson Henrique <br/>
           Kayky Alves     <br/>
           Paulo Bispo     
         </p>
-        <p class="col-4">
+        <p class="col-1">
           Back-End <br/>
           Back-End <br/>
           Back-End <br/>
