@@ -3,10 +3,23 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using VolunTree_API.Services;
+using System.Text.Json;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.WebHost.UseKestrel(options =>
+{
+    options.ListenAnyIP(5114);
+    options.ListenAnyIP(7071, listenOptions =>
+    {
+        listenOptions.UseHttps();
+    });
+});
+
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IDataService, DataService>();
 builder.Services.AddSwaggerGen(c =>
