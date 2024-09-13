@@ -2,11 +2,11 @@
     padding: 0;
     margin: 0;
 }
+main{
 
-/*html{
-    height: 100vh;
-    background-color: black;
+    height: 80vh;
 }
 footer{
+    margin: 0;
     bottom: 0;
-}*/
+}
