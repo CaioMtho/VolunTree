@@ -1,6 +1,6 @@
 @VolunTree_API_HostAddress = http://localhost:5114
 
-GET https://localhost:7071/api/ongs
+GET https://localhost:7071/api/voluntarios
 Accept: application/json
 
 ###
