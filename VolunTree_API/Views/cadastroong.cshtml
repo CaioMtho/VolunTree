@@ -1,3 +1,4 @@
+@model VolunTree_API.Models.Ong
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -38,39 +39,41 @@
       </nav>
     <div>
     <main>
-    <form class="m-3 border">
+
+
+    <form class="m-3 border" asp-action="PostOng">
         <h1 class="h1">Cadastrar ONG</h1>
         <div class="p-3">
             <div id="div-cnpj">
                 <label class="form-label" for="input-cnpj">Cnpj</label>
-                <input class="form-control" type="number" id="input-cnpj">
+                <input class="form-control" type="number" id="input-cnpj" asp-for="Cnpj">
             </div>
             <div id="div-nome">
                 <label class="form-label" for="input-nome">Nome da Ong</label>
-                <input class="form-control" type="text" id="input-nome">
+                <input class="form-control" type="text" id="input-nome" asp-for="NomeOng">
             </div>
             <div id="div-email">
                 <label class="form-label" for="input-email">email</label>
-                <input class="form-control" type="email" id="input-email">
+                <input class="form-control" type="email" id="input-email" asp-for="EmailOng">
             </div>
             <div id="div-endereco">
                 <label class="form-label" for="input-endereco">endereco</label>
-                <input class="form-control" type="text" id="input-endereco">
+                <input class="form-control" type="text" id="input-endereco" asp-for="EnderecoOng">
             </div>
             <div id="div-contato">
                 <label class="form-label" for="input-contato">contato principal</label>
-                <input class="form-control" type="number" id="input-">
+                <input class="form-control" type="number" id="input-" asp-for="ContatoPrincipal">
             </div>
             <div id="div-missao">
                 <label class="form-label" for="input-missao">missão</label>
-                <input class="form-control" type="text" id="input-missao">
+                <input class="form-control" type="text" id="input-missao" asp-for="Missao">
             </div>
             <div id="div-necessidades">
-                <label class="form-label" for="input-necessidades">necessidades
+                <label class="form-label" for="input-necessidades">Necessidades
                 </label>
-                <input class="form-control" type="text" id="">
+                <input class="form-control" type="text" id="input-necessidades" asp-for="necessidades">
             </div>
-            <div><button class="btn btn-success mt-3">enviar</button></div>
+            <div><input type="submit" value="Save" class="btn btn-primary" /></div>
         </div>
     </form>
 </div>
