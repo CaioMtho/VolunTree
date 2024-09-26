@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace SeuProjeto.Mappings
+namespace VolunTree_API.Mappings
 {
     public class CustomMapper : SqlMapper.ITypeMap
     {

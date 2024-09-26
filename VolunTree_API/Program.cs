@@ -5,7 +5,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using VolunTree_API.Services;
 using System.Text.Json;
-using SeuProjeto.Mappings;
+using VolunTree_API.Mappings;
 using VolunTree_API.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -53,14 +53,10 @@ else
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
-
 app.UseRouting();
 
 app.UseAuthorization();
-
 app.MapControllers();
-
 app.UseDefaultFiles();
 app.UseStaticFiles();
 
