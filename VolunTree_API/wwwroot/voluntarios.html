@@ -6,6 +6,7 @@
     <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="main.css" rel="stylesheet">
+    <link href="ong.css" rel="stylesheet">
     <style>
       h2, h3{
         font-family: montserrat;
@@ -61,11 +62,8 @@
     <main class="mt-5">
       <div class="container">
         <h1 id="Ongs-title" class="h1">voluntarios</h1>
-        <div class="border rounded">
-          <div class="ong-card mx-2 border-top border-bottom">
-            <h3>nome</h3>
-            <p>descricao</p>
-          </div>
+        <div class="border rounded" id="menu-box">
+          
         </div>
       </div>
     </main>
@@ -152,6 +150,26 @@
     </div>
   </footer>
   <!--_________________FIM DO <FOOTER>_________________-->
+  <script>
+    fetch("https://localhost:7071/api/voluntarios",{
+      method: 'GET',
+      mode: 'no-cors',
+    }).then(res=>res.json())
+    .then(dados=>{
+      var display = document.querySelector("#menu-box")
+      dados.forEach(element => {
+        display.innerHTML += `<div class='ong-card mx-2 border-top border-bottom'>
+          <div class="row">
+          <h3 class="col">${element.nomeVolun}</h3>
+          <p class="col">email:${element.emailVolun}</p>
+          </div>
+          <p class='text-secondary'>interesses:${element.interesses}</p>
+          <p class='text-secondary'>habilidades:${element.habilidades}</p>
+          </div>`;
+      });
+      console.log(dados[0]);
+    })
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
 </body>
