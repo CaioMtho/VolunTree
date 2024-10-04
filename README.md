@@ -21,8 +21,6 @@ Utilizamos Bootstrap no Front End e Swagger para proporcionar uma documentação
 Baixe os arquivos do projeto ou use "git clone". Inicialize "dotnet run" na pasta "VolunTree_API".
 > O projeto depende do .NET 8
 
-## 🤔 Diagramas C4
-
 ## 🤖 Tecnologias
 ![.Net](https://img.shields.io/badge/.NET-5C2D91?style=for-the-badge&logo=.net&logoColor=white)
 ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
