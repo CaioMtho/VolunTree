@@ -1,0 +1,62 @@
+﻿@page
+@model VolunTree_API.Pages.OngsModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/ong.css" />
+}
+
+<main class="mt-5">
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-3">
+                <h1 id="Ongs-title" class="h1">ONGs</h1>
+            </div>
+            <div class="col-3">
+                <button class="btn btn-success px-4">
+                    <a href="@Url.Page("CadastroOng")" class="text-white">Cadastre sua ONG</a>
+                </button>
+            </div>
+        </div>
+
+        <div class="border rounded" id="menu-box">
+            @if (Model.Ongs != null && Model.Ongs.Count > 0)
+            {
+                foreach (var ong in Model.Ongs)
+                {
+                    <div class="ong-card mx-2 border-top border-bottom">
+                        <div class="row">
+                            <h3 class="col">@ong.NomeOng</h3>
+                            <p class="col">Email: @ong.EmailOng</p>
+                        </div>
+                        <p class='text-secondary'>Missão: @ong.Missao</p>
+                        <p class='text-secondary'>Necessidades: @ong.Necessidades</p>
+                    </div>
+                }
+            }
+            else
+            {
+                <p class="text-secondary">Nenhuma ONG encontrada.</p>
+            }
+        </div>
+
+        <!-- Toolbar de paginação -->
+        <div class="btn-toolbar p-2" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group me-2" role="group" aria-label="First group">
+                <button type="button" class="btn btn-primary">1</button>
+                <button type="button" class="btn btn-info">2</button>
+                <button type="button" class="btn btn-primary">3</button>
+            </div>
+            <div class="btn-group me-2" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-secondary">4</button>
+                <button type="button" class="btn btn-info">5</button>
+                <button type="button" class="btn btn-primary">6</button>
+                <button type="button" class="btn btn-secondary">7</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Third group">
+                <button type="button" class="btn btn-info">8</button>
+            </div>
+        </div>
+    </div><!--FIM DO CONTAINER-->
+</main>
+
+<!-- Modal Autentificação (sem alterações) -->

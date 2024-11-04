@@ -2,5 +2,4 @@
 
 GET https://localhost:7071/api/ongs
 Accept: application/json
-
 ###

@@ -10,7 +10,7 @@
 		public string Missao { get; set; }
 		public string Necessidades { get; set; }
 		public string ContatoPrincipal { get; set; }
-		public DateTime DataRegistroOng { get; set; }
-
-	}
+		public DateTime DataRegistroOng { get; set; } = DateTime.UtcNow;
+        public override string ToString() { return $"Cnpj: {Cnpj}, NomeOng: {NomeOng}, EmailOng: {EmailOng}, TelefoneOng: {TelefoneOng}, EnderecoOng: {EnderecoOng}, Missao: {Missao}, Necessidades: {Necessidades}, ContatoPrincipal: {ContatoPrincipal}, DataRegistroOng: {DataRegistroOng}"; }
+    }
 }
