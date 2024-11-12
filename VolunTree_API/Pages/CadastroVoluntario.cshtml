@@ -1,0 +1,51 @@
+﻿@page
+@model VolunTree_API.Pages.CadastroVoluntarioModel
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/cadastroong.css" />
+}
+
+<main class="flex-grow-1">
+    <form class="m-3 border" method="post">
+        <h1 class="h1">Cadastrar Voluntário</h1>
+        <div class="p-3">
+            <div id="div-cpf">
+                <label class="form-label" for="input-cpf">CPF</label>
+                <input class="form-control" type="text" id="input-cpf" asp-for="NovoVoluntario.Cpf" required>
+            </div>
+            <div id="div-nome">
+                <label class="form-label" for="input-nome">Nome</label>
+                <input class="form-control" type="text" id="input-nome" asp-for="NovoVoluntario.NomeVolun" required>
+            </div>
+            <div id="div-email">
+                <label class="form-label" for="input-email">E-Mail</label>
+                <input class="form-control" type="email" id="input-email" asp-for="NovoVoluntario.EmailVolun" required>
+            </div>
+            <div id="div-telefone">
+                <label class="form-label" for="input-telefone">Telefone</label>
+                <input class="form-control" type="text" id="input-telefone" asp-for="NovoVoluntario.TelefoneVolun" required>
+            </div>
+            <div id="div-endereco">
+                <label class="form-label" for="input-endereco">Endereço</label>
+                <input class="form-control" type="text" id="input-endereco" asp-for="NovoVoluntario.EnderecoVolun" required>
+            </div>
+            <div id="div-interesses">
+                <label class="form-label" for="input-interesses">Interesses</label>
+                <input class="form-control" type="text" id="input-interesses" asp-for="NovoVoluntario.Interesses" required>
+            </div>
+            <div id="div-habilidades">
+                <label class="form-label" for="input-habilidades">Habilidades</label>
+                <input class="form-control" type="text" id="input-habilidades" asp-for="NovoVoluntario.Habilidades" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-success mt-3" onclick="enviarClicked()">Enviar</button>
+            </div>
+        </div>
+    </form>
+</main>
+@section Scripts{
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+         <script type="text/javascript">alert('@Model.Message');</script>
+    }
+}
