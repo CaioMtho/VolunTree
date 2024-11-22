@@ -8,11 +8,10 @@
 <br>
 
 ## 🏗️ Como foi construido?
-Usamos ASP.NET Core para construir uma aplicação MVC juntando o backend e frontend em uma só solução.
-VolunTree API entrega os arquivos estáticos que usamos no Front End, faz a conexão com o banco de dados usando Dapper, mapeando para as nossas classes, e estabelece os métodos de CRUD (Create, Read, Update e Delete) com requisições http facilmente acessíveis.
+  Usamos ASP.NET Core para desenvolver uma API com acesso ao banco de dados local SQLite, a apresentação usa razor pages (cshtml), e o mapeamento das entidades é feito utilizando o micro ORM Dapper.
 <br>
 <br>
-Nosso banco de dados é construído em SQLite para manter a integridade do experimento e permitir o acesso fácil ao arquivo.
+O banco de dados SQLite funciona localmente como um arquivo localizado na pasta Data, é necessário para a execução do projeto.
 <br>
 <br>
 Utilizamos Bootstrap no Front End e Swagger para proporcionar uma documentação automática da aplicação.
