@@ -8,9 +8,12 @@ using System.Text.Json;
 using VolunTree_API.Mappings;
 using VolunTree_API.Models;
 using VolunTree_API.Pages;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configuração das portas Kestrel
 builder.WebHost.UseKestrel(options =>
 {
     options.ListenAnyIP(5114);
@@ -20,13 +23,13 @@ builder.WebHost.UseKestrel(options =>
     });
 });
 
+// Configuração de Serviços
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 });
 
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<IDataService, DataService>();
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Voluntree API", Version = "v1" });
@@ -39,10 +42,20 @@ SqlMapper.SetTypeMap(typeof(Sugestao), new CustomMapper(typeof(Sugestao)));
 
 builder.Services.AddHttpClient<CadastroOngModel>();
 builder.Services.AddRazorPages();
+builder.Services.AddScoped<IDataService, DataService>();
+
+// Configuração de Autenticação e Autorização
+builder.Services.AddScoped<UsuarioAutenticado>();
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.LoginPath = "/Account/Login";
+    options.LogoutPath = "/Account/Logout";
+    options.AccessDeniedPath = "/Account/AccessDenied";
+});
 
 var app = builder.Build();
 
-// Configura o pipeline de requisições
+// Configuração do Pipeline de Requisições
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -59,8 +72,11 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseStaticFiles();
+
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
