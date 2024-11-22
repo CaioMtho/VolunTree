@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -12,14 +13,45 @@ namespace VolunTree_API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
+        private readonly IDataService _dataService;
 
-        public LoginController(IUserService userService)
+        public UserController(IUserService userService, IDataService dataService)
         {
+            _dataService = dataService;
             _userService = userService;
         }
+
+        [Authorize]
+        [HttpGet("user/address")]
+        public IActionResult GetEnderecoUsuario()
+        {
+            var endereco = User.FindFirstValue("Endereco");
+            if (string.IsNullOrEmpty(endereco))
+            {
+                return NotFound("Endereço não encontrado");
+            }
+            return Ok(new {adress =  endereco});
+        }
+
+        /*
+        [Authorize]
+        [HttpGet("ongs")]
+        public async Task<IActionResult> GetOngsPorDistancia([FromQuery] double distancia)
+        {
+            var enderecoUsuario = User.FindFirstValue("Endereco");
+
+            if (string.IsNullOrEmpty(enderecoUsuario)) 
+            { 
+                return Unauthorized("Endereço não encontrado"); 
+            }
+
+            var ongs = await _dataService.ge
+            
+        }
+        */
 
         [HttpPost]
         public async Task<IActionResult> Login([FromBody] LoginRequestDto loginRequest)
@@ -36,7 +68,12 @@ namespace VolunTree_API.Controllers
                 var claims = new List<Claim>
                 {
                     new Claim(ClaimTypes.Name, usuarioAutenticado.UserName),
-                    new Claim(ClaimTypes.Email, usuarioAutenticado.Email)
+                    new Claim(ClaimTypes.Email, usuarioAutenticado.Email),
+                    new Claim("Cpf", usuarioAutenticado.Cpf),                //CPF (Custom claim)
+                    new Claim("Nome", usuarioAutenticado.Nome),               // Nome completo
+                    new Claim("Endereco", usuarioAutenticado.Endereco),       // Endereço do usuário
+                    new Claim("Interesses", usuarioAutenticado.Interesses ?? string.Empty), // Interesses do usuário
+                    new Claim("Habilidades", usuarioAutenticado.Habilidades ?? string.Empty)  // Habilidades do usuário
                 };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
