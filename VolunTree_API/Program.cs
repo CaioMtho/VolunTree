@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Configuração das portas Kestrel
+// Configuraï¿½ï¿½o das portas Kestrel
 builder.WebHost.UseKestrel(options =>
 {
     options.ListenAnyIP(5114);
@@ -23,7 +23,7 @@ builder.WebHost.UseKestrel(options =>
     });
 });
 
-// Configuração de Serviços
+// Configuraï¿½ï¿½o de Serviï¿½os
 builder.Services.AddControllers().AddJsonOptions(options =>
 {
     options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
@@ -44,8 +44,9 @@ builder.Services.AddHttpClient<CadastroOngModel>();
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IDataService, DataService>();
 
-// Configuração de Autenticação e Autorização
+// Configuraï¿½ï¿½o de Autenticaï¿½ï¿½o e Autorizaï¿½ï¿½o
 builder.Services.AddScoped<UsuarioAutenticado>();
+builder.Services.AddScoped<CnpjService>();
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
 {
     options.LoginPath = "/Account/Login";
@@ -55,7 +56,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 var app = builder.Build();
 
-// Configuração do Pipeline de Requisições
+// Configuraï¿½ï¿½o do Pipeline de Requisiï¿½ï¿½es
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();

@@ -9,10 +9,12 @@ namespace VolunTree_API.Controllers
     public class OngsController : ControllerBase
     {
         private readonly IDataService _dataService;
+        private readonly CnpjService  _cnpjService;
 
-        public OngsController(IDataService dataService)
+        public OngsController(IDataService dataService, CnpjService cnpjService)
         {
             _dataService = dataService;
+            _cnpjService = cnpjService;
         }
 
         [HttpGet]
@@ -37,10 +39,23 @@ namespace VolunTree_API.Controllers
 
         [HttpPost]
         public async Task<ActionResult> PostOng(Ong ong)
-        {
+{
+            // Chama o serviço e aguarda o resultado
+            var statusCode = await _cnpjService.RetornaCnpj(ong.Cnpj);
+
+            // Verifica se o status da resposta é OK (200) ou outro status válido
+            if (statusCode != System.Net.HttpStatusCode.OK)
+            {
+                return BadRequest();  // Retorna um erro se o CNPJ não for válido
+            }
+
+            // Adiciona a ONG no banco de dados (assumindo que o AddOngAsync é assíncrono)
             await _dataService.AddOngAsync(ong);
+
+            // Retorna a resposta de sucesso com o status 201 Created
             return CreatedAtAction(nameof(GetOng), new { cnpj = ong.Cnpj }, ong);
         }
+
 
         [HttpPut("{cnpj}")]
         public async Task<IActionResult> PutOng(string cnpj, Ong ong)
