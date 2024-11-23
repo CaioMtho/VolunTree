@@ -1,4 +1,5 @@
-﻿using VolunTree_API.Models;
+﻿using System.Net.WebSockets;
+using VolunTree_API.Models;
 using VolunTree_API.Services;
 
 public class UserService : IUserService
@@ -31,5 +32,16 @@ public class UserService : IUserService
         }
 
         return null;
+    }
+
+    public async Task<List<Ong>> GetOngsByAbility(string habilidades)
+    {
+        List<Ong> ongs = (List<Ong>) await _dataService.GetOngsAsync(); 
+        var listaHabilidades = habilidades.Split(' ').ToList(); 
+        var ongsFiltradas = ongs.Where(ong => listaHabilidades
+                                .Any(habilidade => ong.Necessidades
+                                .Contains(habilidade, StringComparison.OrdinalIgnoreCase)))
+                                .ToList(); 
+        return ongsFiltradas;
     }
 }

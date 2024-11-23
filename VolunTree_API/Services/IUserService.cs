@@ -6,5 +6,7 @@ namespace VolunTree_API.Services
     public interface IUserService
     {
         Task<UsuarioAutenticado> AuthenticateAsync(string email, string cpf);
+        Task<List<Ong>> GetOngsByAbility(string habilidades);
+
     }
 }

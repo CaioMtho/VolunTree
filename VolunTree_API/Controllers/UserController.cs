@@ -16,11 +16,9 @@ namespace VolunTree_API.Controllers
     public class UserController : ControllerBase
     {
         private readonly IUserService _userService;
-        private readonly IDataService _dataService;
 
-        public UserController(IUserService userService, IDataService dataService)
+        public UserController(IUserService userService)
         {
-            _dataService = dataService;
             _userService = userService;
         }
 
@@ -34,6 +32,19 @@ namespace VolunTree_API.Controllers
                 return NotFound("Endereço não encontrado");
             }
             return Ok(new {adress =  endereco});
+        }
+
+        [Authorize]
+        [HttpGet("ongs")] 
+        public async Task<IActionResult> GetOngsPorHabilidade() 
+        { 
+            var habilidades = User.FindFirstValue("Habilidades"); 
+            if (string.IsNullOrEmpty(habilidades)) 
+            { 
+                return Unauthorized("Habilidades não encontradas"); 
+            } 
+            var ongs = await _userService.GetOngsByAbility(habilidades); 
+            return Ok(ongs); 
         }
 
         /*
