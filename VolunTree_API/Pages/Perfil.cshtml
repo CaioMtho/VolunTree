@@ -1,0 +1,56 @@
+﻿@page
+@model VolunTree_API.Pages.PerfilModel
+@using System.Security.Claims
+
+@{
+    ViewData["Title"] = "Perfil";
+}
+
+<div class="container mt-4">
+    @if (Model.Usuario != null)
+    {
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="*" alt="Avatar do usuário">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">@Model.Usuario.Nome</h5>
+                        <p class="card-text">@Model.Usuario.Email</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h4>Informações do Perfil</h4>
+                    </div>
+                    <div class="card-body">
+                        <dl class="row">
+                            <dt class="col-sm-3">Nome:</dt>
+                            <dd class="col-sm-9">@Model.Usuario.Nome</dd>
+
+                            <dt class="col-sm-3">Email:</dt>
+                            <dd class="col-sm-9">@Model.Usuario.Email</dd>
+
+                            <dt class="col-sm-3">CPF:</dt>
+                            <dd class="col-sm-9">@Model.Usuario.Cpf</dd>
+
+                            <dt class="col-sm-3">Endereço:</dt>
+                            <dd class="col-sm-9">@Model.Usuario.Endereco</dd>
+
+                            <dt class="col-sm-3">Interesses:</dt>
+                            <dd class="col-sm-9">@Model.Usuario.Interesses</dd>
+
+                            <dt class="col-sm-3">Habilidades:</dt>
+                            <dd class="col-sm-9">@Model.Usuario.Habilidades</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <p>Você não está autenticado ou os dados do usuário não foram encontrados.</p>
+    }
+</div>
