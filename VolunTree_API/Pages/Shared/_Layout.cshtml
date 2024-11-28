@@ -57,7 +57,11 @@
             font-weight: 400;
             font-style: normal;
         }
-
+        #logo{
+            width: 48px;
+            height: 48px;
+            margin: 20px;
+        }
         #background-home {
             background-image: url('ongs.jpeg');
             height: 1200px;
@@ -65,28 +69,33 @@
 
         #h2-cor {
             color: white;
+            text-align: center;
         }
 
-        #h3-cor {
-            color: wheat;
+        #h3-cor{
+            text-align: center;
+            color: lightgreen;
         }
 
         #input-height {
             height: 70%;
         }
-
+        #btn-entrar{
+            width: 100%;
+            display: block;
+            }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-md bg-success bg-gradient">
         <div class="container-fluid">
-            <img src="VolunTree_logo_def_resized.png" alt="voluntree logo" height="80px" width="80px"/>
+            <img src=".\logo256.png" alt="voluntree logo" id="logo"/>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active text-light " aria-current="page" href="@Url.Page("Index")">Home</a>
+                    <a class="nav-link active text-light mx-3" aria-current="page" href="@Url.Page("Index")">Home</a>
                     <a class="nav-link text-light mx-3" href="@Url.Page("Voluntarios")">Voluntariado</a>
                     <a class="nav-link text-light mx-3" href="@Url.Page("Ongs")">ONGs</a>
                     <a class="nav-link text-light mx-3" href="@Url.Page("Sobre")">Sobre o Voluntree</a>
@@ -96,7 +105,7 @@
                 <form class="d-flex m-auto" role="search">
                     <input class="form-control me-2 w-auto" id="input-height" type="search" placeholder="Pesquisar ONGs" aria-label="Search">
                 </form>
-                <button type="button" class="btn btn-light m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><a href="@Url.Page("Login")">Entrar</a></button>
+                <a href="@Url.Page("Login")"><button type="button" class="btn btn-light m-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Entrar</button></a>
             </div>
         </div>
     </nav>
