@@ -9,10 +9,11 @@
 <div class="container mt-4">
     @if (Model.Usuario != null)
     {
+    
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top" src="*" alt="Avatar do usuário">
+                    <img class="card-img-top" src="defaultfoto.png" alt="Avatar do usuário">
                     <div class="card-body text-center">
                         <h5 class="card-title">@Model.Usuario.Nome</h5>
                         <p class="card-text">@Model.Usuario.Email</p>
