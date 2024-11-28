@@ -1,0 +1,13 @@
+@page
+
+<main>
+    <h1>Login</h1>
+    <form class="m-3 border" method="post">
+        <label class="form-label" for="input-email">Email</label>
+        <input class="form-control" type="text" id="input-email" asp-for="" required>
+        <label class="form-label" for="input-cpf">CPF</label>
+        <input class="form-control" type="password" id="input-cpf" asp-for="" required>
+        <button type="submit" class="btn btn-success mt-3" onclick="enviarClicked()">Enviar</button>
+    </form>
+
+</main>
