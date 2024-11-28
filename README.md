@@ -8,10 +8,15 @@
 <br>
 
 ## 🏗️ Como foi construido?
-  Usamos ASP.NET Core para desenvolver uma API com acesso ao banco de dados local SQLite, a apresentação usa razor pages (cshtml), e o mapeamento das entidades é feito utilizando o micro ORM Dapper.
+VolunTree é uma aplicação web criada com ASP.NET Core e suas funcionalidades.
+Existem várias camadas na API:
+- Models: Classes do domínio usadas na aplicação e mapeadas com o Dapper;
+- Services: Regras de negócio são aplicadas aqui, tal qual acesso a serviços externos;
+- Controllers: Expõe os serviços para acesso por meio de requisições HTTP, adicionam endpoints para a aplicação, definem parâmetros e métodos.
+- Pages: Interface web com Razor Pages, separadas por layouts, páginas e models(code-behinds);
 <br>
 <br>
-O banco de dados SQLite funciona localmente como um arquivo localizado na pasta Data, é necessário para a execução do projeto.
+Utilizamos a BrasilAPI para verificação de CNPJs, o micro-ORM Dapper para mapear as entidades para as classes internas, e as bibliotecas Authentication do ASP.NET Core e Mailkit do .NET.
 <br>
 <br>
 Utilizamos Bootstrap no Front End e Swagger para proporcionar uma documentação automática da aplicação.
