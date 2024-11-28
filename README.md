@@ -16,7 +16,7 @@ Existem várias camadas na API:
 - Pages: Interface web com Razor Pages, separadas por layouts, páginas e models(code-behinds);
 <br>
 <br>
-Utilizamos a BrasilAPI para verificação de CNPJs, o micro-ORM Dapper para mapear as entidades para as classes internas, e as bibliotecas Authentication do ASP.NET Core e Mailkit do .NET.
+Utilizamos a BrasilAPI para verificação de CNPJs e o micro-ORM Dapper para mapear as entidades para as classes internas.
 <br>
 <br>
 Utilizamos Bootstrap no Front End e Swagger para proporcionar uma documentação automática da aplicação.
